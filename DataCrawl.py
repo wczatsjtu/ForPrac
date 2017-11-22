@@ -22,7 +22,7 @@ count = 0
 while True:
     with open(file_path, 'a+') as file_data:
         r = requests.get('http://api.bobo.com/recommend/app/homepage/listLivingInfo', params=payload)
-        print "r.content: ", r.content
+#        print "r.content: ", r.content
         print "r.content len:", len(r.content)
 
         file_data = open(file_path, 'a+')
@@ -36,7 +36,7 @@ while True:
         count += 1
 
     print count, datetime.datetime.now()
-    time.sleep(60)
+    time.sleep(600)
 
 
 # file_data = open(file_path, 'a+')
