@@ -31,7 +31,7 @@ while True:
         # file_data.close()
         count += 1
     print count, datetime.datetime.now()
-    time.sleep(1)
+    time.sleep(600)
 
 
 # file_data = open(file_path, 'a+')
