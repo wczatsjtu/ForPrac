@@ -7,7 +7,6 @@ import datetime
 file_path = "data1"
 
 payload = {'pageNo': '1', 'pageSize': 200, 'platform': '1', 'type': 'index'}
-r = requests.get('http://api.bobo.com/recommend/app/homepage/listLivingInfo', params=payload)
 #r = requests.get('http://api.bobo.com/recommend/app/homepage/listLivingInfo', params=payload)
 # print r.encoding
 # print r.status_code
@@ -22,7 +21,12 @@ print "#########################################################################
 count = 0
 while True:
     with open(file_path, 'a+') as file_data:
+        r = requests.get('http://api.bobo.com/recommend/app/homepage/listLivingInfo', params=payload)
+        print "r.content: ", r.content
+        print "r.content len:", len(r.content)
+
         file_data = open(file_path, 'a+')
+
         file_data.write(str(datetime.datetime.now())+" " )
         file_data.write(str(time.time())+" ")
         file_data.write(r.content)
@@ -30,8 +34,9 @@ while True:
         file_data.write('\n')
         # file_data.close()
         count += 1
+
     print count, datetime.datetime.now()
-    time.sleep(600)
+    time.sleep(60)
 
 
 # file_data = open(file_path, 'a+')
